@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="./style/main.css">
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>树洞</title>
+</head>
+<body>
+<div id="app">
+	<div v-if="login" class="chat page">
+		<div class="chatArea">
+			<ul class="messages">
+				<li v-for="message in messageList">{{message}}</li>
+			</ul>
+		</div>
+		<div class="inputArea">
+			<el-input v-model="input" placeholder="请输入内容" @keyup.enter.native="messageSubmit"></el-input>
+			<el-button type="success" @click="messageSubmit">发送</el-button>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
